@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+for i in `seq 100`
+do
+if [ $(($i % 2)) == 0 ]; then
+    echo -n "$i "
+else
+    :
+fi
+done
+echo
