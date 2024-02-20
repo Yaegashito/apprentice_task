@@ -16,11 +16,11 @@ elif [ "$answer" = "Get Password" ]; then
     read -p "サービス名を入力してください：" service_nameG
     	if [ -z $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
             	echo "登録なし"
-  		elif [ -n $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
-   	 			echo "サービス名：$service_nameG"
-   	 			echo "ユーザー名：$(grep "^$service_nameG:" pwdata_step2.txt | cut -d ":" -f 2)"
-   	 			echo "パスワード：$(grep "^$service_nameG:" pwdata_step2.txt | cut -d ":" -f 3)"
-    	fi
+    elif [ -n $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
+   	 echo "サービス名：$service_nameG"
+   	 echo "ユーザー名：$(grep "^$service_nameG:" pwdata_step2.txt | cut -d ":" -f 2)"
+   	 echo "パスワード：$(grep "^$service_nameG:" pwdata_step2.txt | cut -d ":" -f 3)"
+    fi
 elif [ "$answer" = "Exit" ]; then
     echo "Thank you!"
     break
