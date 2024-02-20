@@ -14,8 +14,8 @@ if [ "$answer" = "Add Password" ]; then
     echo "パスワードの追加は成功しました。"
 elif [ "$answer" = "Get Password" ]; then
     read -p "サービス名を入力してください：" service_nameG
-    	if [ -z $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
-            	echo "登録なし"
+    if [ -z $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
+   	 echo "登録なし"
     elif [ -n $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
    	 echo "サービス名：$service_nameG"
    	 echo "ユーザー名：$(grep "^$service_nameG:" pwdata_step2.txt | cut -d ":" -f 2)"
