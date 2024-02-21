@@ -9,13 +9,13 @@ read -p "次の選択肢から入力してください(Add Password/Get Password
 if [ "$answer" = "Add Password" ]; then
     read -p "サービス名を入力してください：" service_nameA
     read -p "ユーザー名を入力してください：" user_name
-    read -p "パスワードを入力してください：" password
+    read -s -p "パスワードを入力してください：" password
     echo "$service_nameA:$user_name:$password" >> "pwdata_step2.txt"
     echo "パスワードの追加は成功しました。"
 elif [ "$answer" = "Get Password" ]; then
     read -p "サービス名を入力してください：" service_nameG
     if [ -z $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
-   	 echo "登録なし"
+   	 echo "そのサービスは登録されていません。"
     elif [ -n $(grep "^$service_nameG:" pwdata_step2.txt) ]; then
    	 echo "サービス名：$service_nameG"
    	 echo "ユーザー名：$(grep "^$service_nameG:" pwdata_step2.txt | cut -d ":" -f 2)"
